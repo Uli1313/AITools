@@ -1,0 +1,14 @@
+// -----------utils------------
+@import "variables";
+
+// ------------base------------
+@import "base";
+
+// -----------layout-----------
+@import "layout/header";
+@import "layout/footer";
+@import "layout/ai-tools";
+
+// -----------pages------------
+@import "pages/index";
+@import "pages/price";
