@@ -5,7 +5,6 @@
     font-size: $font-6m;
   }
   h4 {
-    width: 50%;
     font-size: $font-3s;
     margin-top: 80px;
   }
@@ -24,15 +23,6 @@
       margin-top: 64px;
       text-align: justify;
     }
-    .deco {
-      margin-top: 258px;
-      // 蓋bs5樣式
-      align-self: center !important;
-      text-align: center;
-      img {
-        max-width: 32%;
-      }
-    }
   }
 }
 .price {
@@ -44,13 +34,9 @@
     margin-top: 80px;
     &-border {
       border: 1px solid $black-80;
-      border-radius: $rounded-s;
       min-height: 318px;
       &:hover {
-        animation-name: border;
-        animation-duration: 2s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
+        animation: border 2s 1 forwards;
       }
     }
     &-person {
@@ -63,10 +49,7 @@
         // 使 li, li::before 對齊名字
         padding-left: 24px;
         li {
-          list-style-type: none;
           color: $black-20;
-          font-size: $font-s;
-          position: relative;
           &::before {
             // 自製圓點
             content: "";
@@ -94,11 +77,9 @@
       }
       span {
         color: $black-60;
-        font-weight: normal;
       }
       a {
         font-size: $font-s;
-        font-weight: 700;
       }
       img {
         width: 16px;
@@ -203,7 +184,6 @@
   &-accordion {
     &-item {
       border: 1px solid $black-80;
-      border-radius: $rounded-s;
       padding: 20px 40px;
       margin-bottom: 20px;
       &:nth-child(5) {
@@ -214,13 +194,10 @@
       }
       &-title {
         label {
-          display: block;
           font-size: $font-m;
           line-height: 1.2;
           color: $black-0;
           cursor: pointer;
-          // 放大可點擊的範圍
-          width: 100%;
         }
         img {
           margin-right: 16px;
@@ -230,19 +207,18 @@
         }
       }
       p {
-        font-size: $font-s;
         padding-left: 40px;
         // 預設隱藏
         max-height: 0;
         overflow: hidden;
-        transition: all 0.7s linear;
+        transition: all 0.3s linear;
       }
       input[type="checkbox"] {
         display: none;
         // selector ----- elA ~ elB : 接在 A 後面的所有 B（同輩）
         &:checked ~ p {
           // 使用auto自動撐高度 或 在p標籤上面用display:block/none切換顯示 無法套用transition效果
-          max-height: 500px;
+          max-height: 130px;
           padding-top: 15px;
         }
         &:checked ~ .question-accordion-item-title .question-icon-add {
@@ -266,6 +242,11 @@
       margin-top: 24px;
       &-item {
         padding: 20px;
+        input[type="checkbox"] {
+          &:checked ~ p {
+            max-height: 250px;
+          }
+        }
       }
     }
   }

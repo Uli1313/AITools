@@ -42,3 +42,12 @@ h6 {
 .container {
   max-width: 1296px;
 }
+.bg-white {
+  background: $black-0;
+}
+.rounded-4 {
+  border-radius: $rounded-s;
+}
+.rounded-5 {
+  border-radius: $rounded-l;
+}

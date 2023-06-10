@@ -1,7 +1,4 @@
-.bg-white {
-  max-width: 1920px;
-  border-radius: $rounded-l;
-  background: $black-0;
+.ai-tools {
   padding: 160px 0;
   margin-top: 160px;
   p,
@@ -10,28 +7,14 @@
   a {
     color: $black-100;
   }
-}
-@media (max-width: 768px) {
-  .bg-white {
-    border-radius: $rounded-s + 4px;
-    padding: 80px 0px;
-    margin-top: 122px;
-  }
-}
-.ai-tools {
   h2 {
     font-size: $font-4m;
-    font-weight: 900;
     margin-bottom: 80px;
-    br {
-      display: none;
-    }
   }
   &-search {
     width: 100%;
     background: $black-20;
     padding: 20px 40px;
-    border-radius: $rounded-s;
     img {
       width: 24px;
       height: 24px;
@@ -45,13 +28,15 @@
   }
 }
 @media (max-width: 768px) {
+  .rounded-5 {
+    border-radius: $rounded-s + 4px;
+  }
   .ai-tools {
+    padding: 80px 0px;
+    margin-top: 122px;
     h2 {
       font-size: $font-2s;
       margin-bottom: 32px;
-      br {
-        display: block;
-      }
     }
   }
 }
@@ -65,9 +50,7 @@
 .dropdown-toggle-latest {
   background: $black-0;
   border: 1px solid $black-20;
-  border-radius: $rounded-s;
   padding: 20px 32px 20px 40px;
-  font-size: $font-s;
   span {
     margin-left: 12px;
     width: 16px;
@@ -78,22 +61,16 @@
 .dropdown-menu-latest {
   width: 15vw;
   background: $black-0;
-  border-radius: $rounded-s;
   padding: 20px 0;
   margin-top: 4px;
   box-shadow: 0px 0px 15px 5px $black-20;
-  position: absolute;
   z-index: 100;
   display: none;
   p {
     color: $black-60;
-    font-weight: 700;
     font-size: $font-xxs;
     padding-left: 40px;
     padding-bottom: 4px;
-  }
-  li {
-    font-size: $font-s;
   }
   hr {
     border: 1px solid $black-20;
@@ -108,7 +85,6 @@
   }
 }
 .dropdown-menu-latest {
-  width: auto;
   transform: translate(0px, 65px);
   a {
     padding: 4px 40px;
@@ -118,39 +94,27 @@
 .ai-tools-menu-type {
   li {
     margin: 0 4px;
-    &:nth-child(1)a {
+  }
+  a {
+    color: $black-60;
+    padding: 8px 16px;
+    &:hover {
       color: $black-100;
       background: $black-20;
       font-weight: 700;
     }
-    a {
-      color: $black-60;
-      font-size: $font-s;
-      padding: 8px 16px;
-      border-radius: $rounded-s;
-      &:hover {
-        color: $black-100;
-        background: $black-20;
-        font-weight: 700;
-      }
-    }
+  }
+  .ai-tools-menu-type-active {
+    color: $black-100;
+    background: $black-20;
+    font-weight: 700;
   }
 }
 @media (max-width: 768px) {
   .ai-tools-menu {
     margin-top: 16px;
     margin-bottom: 48px;
-    flex-wrap: wrap;
-    &-select {
-      order: 1;
-      width: 50%;
-    }
-    &-latest {
-      order: 2;
-      width: 50%;
-    }
-    &-wrapper {
-      order: 3;
+    &-type {
       margin-top: 16px;
       // 選單左右滑動
       overflow-x: scroll;
@@ -168,13 +132,10 @@
 // ai-card
 .ai-card {
   border: 1px solid $black-20;
-  border-radius: $rounded-s;
   margin-bottom: 24px;
   &-img {
-    border-radius: $rounded-s $rounded-s 0 0;
     img {
       transition: all 0.2s ease-in;
-      width: 100%;
       &:hover {
         transform: scale(1.2);
       }
@@ -193,29 +154,23 @@
   }
   &-module,
   &-tag {
-    display: flex;
-    justify-content: space-between;
     padding: 20px 32px;
-    p {
-      font-size: $font-s;
-    }
   }
 }
 
 // ai-pagination
 .pagination {
   li {
-    &:nth-child(1) a {
-      background: $black-100;
-      color: $black-0;
-    }
     a {
       width: 48px;
       height: 48px;
-      border-radius: $rounded-s;
-      text-align: center;
       line-height: 45px;
       margin-left: 4px;
     }
   }
+}
+// 增加權重讓color有效果
+.pagination .pagination-active {
+  background: $black-100;
+  color: $black-0;
 }

@@ -1,7 +1,6 @@
 .header {
   border-bottom: 1px solid $black-0;
   padding: 20px 0;
-  position: relative;
 }
 .logo {
   // 圖片置中
@@ -11,7 +10,6 @@
   }
 }
 .menu {
-  display: flex;
   li {
     margin-left: 20px;
   }
@@ -19,16 +17,13 @@
 // burger-menu
 .burger-label,
 .burger-checkbox {
-  display: none;
   line-height: 0;
 }
 .burger-menu {
   display: none;
-  width: 100%;
   height: calc(100vh - 64px);
   background: $bg-color;
   border-top: 1px solid $black-0;
-  position: absolute;
   top: 100%;
   left: 0;
   // 把glass動畫效果蓋過去
@@ -39,14 +34,8 @@
     .logo-img {
       width: 113px;
     }
-    .menu {
+    .burger-close {
       display: none;
-    }
-    label {
-      display: block;
-      .burger-close {
-        display: none;
-      }
     }
   }
   #burger:checked ~ .burger-menu {
@@ -60,11 +49,7 @@
   }
   .burger-menu {
     &-list {
-      li {
-        text-align: center;
-        position: relative;
-        top: 23vh;
-      }
+      top: 23vh;
       a {
         font-size: $font-4m;
         font-weight: 900;
@@ -72,7 +57,6 @@
       }
     }
     &-footer {
-      position: relative;
       padding: 0px 15px;
       top: 38vh;
       .copyright {

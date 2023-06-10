@@ -10,37 +10,58 @@ $(function () {
   });
 });
 
-// recommend Carousel
-let slideIndex = 1;
-showSlides(slideIndex);
+// recommend 輪播
+const swiper = new Swiper(".swiper", {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+    },
+    768: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+    },
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
-function plusSlides(n) {
-  showSlides((slideIndex += n));
+// ai-type active
+const options = document.querySelectorAll(".ai-tools-menu-type li a");
+
+for (let i = 0; i < options.length; i++) {
+  options[i].addEventListener("click", function () {
+    const currentOption = this.id;
+
+    // 移除所有選項的active
+    for (let j = 0; j < options.length; j++) {
+      options[j].classList.remove("ai-tools-menu-type-active");
+    }
+
+    // 當前點擊選項設為active
+    document
+      .getElementById(currentOption)
+      .classList.add("ai-tools-menu-type-active");
+  });
 }
 
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
+// ai-pagination active
+const paginationOptions = document.querySelectorAll(".pagination li a");
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("recommend-slides");
-  let dots = document.getElementsByClassName("dot");
-  // console.log(slides.length);
-  // console.log(dots.length);
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].setAttribute("style", "display:none;");
-    // console.log(slides);
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].classList.remove("active");
-  }
-  slides[slideIndex - 1].setAttribute("style", "display:block;");
-  dots[slideIndex - 1].classList.add("active");
+for (let i = 0; i < paginationOptions.length; i++) {
+  paginationOptions[i].addEventListener("click", function () {
+    const paginationCurrentOption = this.id;
+
+    for (let j = 0; j < paginationOptions.length; j++) {
+      paginationOptions[j].classList.remove("pagination-active");
+    }
+
+    document
+      .getElementById(paginationCurrentOption)
+      .classList.add("pagination-active");
+  });
 }
